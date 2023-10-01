@@ -32,7 +32,7 @@
                 android:textSize="36sp"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:textColor="@color/cyan"/>
+                android:textColor="@color/App_color"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                 android:text="@string/login"
                 android:textSize="18sp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/cyan"
+                android:backgroundTint="@color/App_color"
                 app:cornerRadius = "20dp"/>
 
         </LinearLayout>
@@ -83,7 +83,7 @@
         android:textSize="16sp"
         android:textAlignment="center"
         android:id="@+id/signupText"
-        android:textColor="@color/cyan"
+        android:textColor="@color/App_color"
         android:layout_marginBottom="20dp"/>
 
 </LinearLayout>
