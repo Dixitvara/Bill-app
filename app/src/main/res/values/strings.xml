@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BillApp</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="not_yet_registered_signup_now">Not yet registered? SignUp Now</string>
+</resources>
