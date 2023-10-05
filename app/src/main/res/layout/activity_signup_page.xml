@@ -133,7 +133,7 @@
                     android:layout_height="60dp"
                     android:layout_marginTop="30dp"
                     android:backgroundTint="@color/App_color"
-                    android:text="@string/submit"
+                    android:text="@string/create_account"
                     android:textSize="18sp"
                     app:cornerRadius="20dp" />
 

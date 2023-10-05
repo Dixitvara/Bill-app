@@ -17,6 +17,9 @@
         android:theme="@style/Theme.BillApp"
         tools:targetApi="31">
         <activity
+            android:name=".Dashboard"
+            android:exported="false" />
+        <activity
             android:name=".SignupPage"
             android:exported="false" />
         <activity

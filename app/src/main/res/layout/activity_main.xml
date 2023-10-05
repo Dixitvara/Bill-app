@@ -39,7 +39,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/username"
+                    android:id="@+id/emailEt"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"
@@ -52,7 +52,7 @@
                     android:textColorHighlight="@color/cardview_dark_background" />
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/passwordEt"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
@@ -64,6 +64,15 @@
                     android:padding="8dp"
                     android:textColor="@color/black"
                     android:textColorHighlight="@color/cardview_dark_background" />
+
+                <CheckBox
+                    android:id="@+id/chkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:buttonTint="@color/App_color"
+                    android:text="Remember me"
+                    android:textColor="@color/App_color" />
 
                 <Button
                     android:id="@+id/loginButton"
