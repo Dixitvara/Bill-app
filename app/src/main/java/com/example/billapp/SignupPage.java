@@ -21,7 +21,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class SignupPage extends AppCompatActivity {
 
     EditText cnameET, fnameET, emailET, addressET, cpassET, passET;
-
     TextView loginTxt;
     Button button;
 
@@ -107,6 +106,7 @@ public class SignupPage extends AppCompatActivity {
                     cpassET.setError("Required");
                     return;
                 }
+
 
                 if (cpass.equals(pass)) {
                     UserModel data = new UserModel(cname, fname, email, address);
