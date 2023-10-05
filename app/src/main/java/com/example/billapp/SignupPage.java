@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignupPage extends AppCompatActivity {
@@ -33,6 +35,8 @@ public class SignupPage extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#1AACAC"));
         actionBar.setBackgroundDrawable(colorDrawable);
+
+        loadingDialog ld = new loadingDialog(SignupPage.this);
 
         // variables
         cnameET = findViewById(R.id.cname);
@@ -73,7 +77,7 @@ public class SignupPage extends AppCompatActivity {
                     fnameET.setError("Required");
                     return;
                 }
-                if (!fname.matches("[A-Z][a-z]*")) {
+                if (!fname.matches("[a-z0-9]*")) {
                     fnameET.setError("Enter valid name");
                     return;
                 }
@@ -83,7 +87,7 @@ public class SignupPage extends AppCompatActivity {
                     emailET.setError("Required");
                     return;
                 }
-                if (!email.matches("^(.+)@(.+)$")) {
+                if (!email.matches("^[a-z0-9+_.-]+@(.+)$")) {
                     emailET.setError("Enter valid Email");
                     return;
                 }
@@ -107,17 +111,31 @@ public class SignupPage extends AppCompatActivity {
                     return;
                 }
 
-
                 if (cpass.equals(pass)) {
+
+                    ld.startLoading();
                     UserModel data = new UserModel(cname, fname, email, address);
-                    FirebaseFirestore.getInstance().collection("user").document().set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                        public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(SignupPage.this, "Account created!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                FirebaseFirestore.getInstance().collection("user").document().set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            ld.dismissDialog();
+                                            Toast.makeText(SignupPage.this, "Account created!", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                        } else {
+                                            ld.dismissDialog();
+                                            Toast.makeText(SignupPage.this, "Failed!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
                             } else {
-                                Toast.makeText(SignupPage.this, "Error!", Toast.LENGTH_SHORT).show();
+                                ld.dismissDialog();
+                                Toast.makeText(SignupPage.this, "Failed to create account with this email", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
