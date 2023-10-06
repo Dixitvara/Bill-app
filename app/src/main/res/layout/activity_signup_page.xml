@@ -34,7 +34,7 @@
                     android:text="@string/create_account"
                     android:textAlignment="center"
                     android:textColor="@color/App_color"
-                    android:textSize="36sp"
+                    android:textSize="32sp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -50,7 +50,8 @@
                     android:inputType="textPersonName"
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/fullname"
@@ -65,7 +66,9 @@
                     android:inputType="textPersonName"
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/email"
@@ -80,7 +83,9 @@
                     android:inputType="textEmailAddress"
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/address"
@@ -93,9 +98,11 @@
                     android:drawablePadding="8dp"
                     android:hint="@string/address"
                     android:inputType="textPostalAddress"
+
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/password"
@@ -108,9 +115,11 @@
                     android:drawablePadding="8dp"
                     android:hint="@string/password"
                     android:inputType="textPassword"
+
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:textSize="16dp" />
 
                 <EditText
                     android:id="@+id/cpassword"
@@ -125,7 +134,9 @@
                     android:inputType="textPassword"
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:textSize="16dp" />
 
                 <Button
                     android:id="@+id/loginButton"
